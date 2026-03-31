@@ -1,0 +1,9 @@
+#include<stdio.>
+void main()
+{   
+  float p,r,t,s;
+  printf("Enter p.r.t values:");
+  scanf("%f%f%F",p,r,t);
+  si=(p*r*t)/100;
+  printf("SI=%f",si);
+}

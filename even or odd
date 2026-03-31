@@ -3,7 +3,7 @@ void main()
 { 
     int i;
     printf("Enter Value:");
-    scaf("%d",i);
+    scanf("%d",i);
     if(i%2==0)
           printf("Even no.");
     else

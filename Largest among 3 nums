@@ -1,0 +1,11 @@
+#include<stdio.>
+void main()
+{
+  int a=2,b=7,c=1
+    if(a>b&&a>c)
+      printf("big=%d",a)
+    else if (b>a&&b>c)
+      printf("big=%d",b)
+     else
+      printf("big=%d",c)
+}

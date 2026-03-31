@@ -1,0 +1,8 @@
+#include<stdio.h>
+void main()
+{ 
+  int l=10,b=5,ar,pr;
+  ar=lxb
+  pr=2x(l+b)
+  printf("Area=%d',ar);
+  printf("Perimeter =%d",pr);

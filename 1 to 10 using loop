@@ -1,9 +1,10 @@
 #include<stdio.h>
 void main()
 {   
-  inti=1;
-  while(i≤10)
+  int i = 1;
+  while(i <= 10)
   {
-      printf("%d",i);
-      c++;
+      printf("%d", i);
+      i++;
+  }
 }

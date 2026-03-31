@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+      int i,j,N;
+      clrscr();
+      printf("Enter size of N");
+      scanf("%d",&N);
+      printf("Pattern upto %d rows is\n",N);
+      for(i=1;i<=N;i++)
+      {
+        for(j=1;j<=i;j++)
+        {
+            printf("%d ",j);
+          }
+          printf("\n");
+        }
+    getch();
+    }
+Output:
+Enter size of N 5
+Pattern upto 5 rowsis
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5

@@ -1,0 +1,42 @@
+class Node:
+ def __init__(self, data):
+ self.data, self.prev, self.next = data, None, None
+head = None
+def insert(x):
+ global head
+ n = Node(x)
+ if head is None:
+ head = n
+ else:
+ t = head
+ while t.next:
+ t = t.next
+ t.next = n
+ n.prev = t
+def delete(x):
+ global head
+ t = head
+ while t and t.data != x:
+ t = t.next
+ if t:
+ if t.prev:
+ t.prev.next = t.next
+ else:
+ head = t.next
+ if t.next:
+ t.next.prev = t.prev
+def display():
+ t = head
+ while t:
+ print(t.data, end=" <-> ")
+ t = t.next
+ print("NULL")
+insert(10); insert(20); insert(30)
+print("Doubly Linked List:"); display()
+delete(20)
+print("After Deletion:"); display()
+Expected Output
+Doubly Linked List:
+10 <-> 20 <-> 30 <-> NULL
+After Deletion:
+10 <-> 30 <-> NULL

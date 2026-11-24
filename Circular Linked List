@@ -1,0 +1,55 @@
+class Node:
+ def __init__(self, data):
+ self.data, self.next = data, None
+head = None
+def insert(x):
+ global head
+ n = Node(x)
+ if head is None:
+ head = n
+ n.next = head
+ else:
+ t = head
+ while t.next != head:
+ t = t.next
+ t.next = n
+ n.next = head
+def delete(x):
+ global head
+ if head is None:
+ return
+ if head.data == x:
+ if head.next == head:
+ head = None
+ else:
+ t = head
+ while t.next != head:
+ t = t.next
+ head = head.next
+ t.next = head
+ else:
+ t = head
+ while t.next != head and t.next.data != x:
+ t = t.next
+ if t.next != head:
+ t.next = t.next.next
+def display():
+ if head is None:
+ print("Empty")
+ return
+ t = head
+ while True:
+ print(t.data, end=" -> ")
+ t = t.next
+ if t == head:
+ break
+ print("(Back to Head)")
+insert(10); insert(20); insert(30)
+print("Circular Linked List:"); display()
+delete(20)
+print("After Deletion:"); display()
+Expected Output
+Circular Linked List:
+10 -> 20 -> 30 -> (Back to Head)
+After Deletion:
+10 -> 30 -> (Back to Head)

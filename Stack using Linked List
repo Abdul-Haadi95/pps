@@ -1,0 +1,36 @@
+class Node:
+ def __init__(self, data):
+ self.data, self.next = data, None
+top = None
+def push(x):
+ global top
+ n = Node(x)
+ n.next = top
+ top = n
+def pop():
+ global top
+ if top:
+ print("Deleted:", top.data)
+ top = top.next
+ else:
+ print("Stack is Empty")
+def peek():
+ if top:
+ print("Top:", top.data)
+def display():
+ t = top
+ while t:
+ print(t.data, end=" ")
+ t = t.next
+ print()
+push(10); push(20); push(30)
+print("Stack:"); display()
+peek(); pop()
+print("After POP:"); display()
+Expected Output
+Stack:
+30 20 10
+Top: 30
+Deleted: 30
+After POP:
+20 10

@@ -1,0 +1,54 @@
+class Node:
+ def __init__(self, data):
+ self.data = data
+ self.left = self.right = None
+def insert(root, x):if root is None:
+ return Node(x)
+ if x < root.data:
+ root.left = insert(root.left, x)
+ elif x > root.data:
+ root.right = insert(root.right, x)
+ return root
+def search(root, x):
+ if root is None or root.data == x:
+ return root
+ if x < root.data:
+ return search(root.left, x)
+ return search(root.right, x)
+def delete(root, x):
+ if root is None:
+ return None
+ if x < root.data:
+ root.left = delete(root.left, x)
+ elif x > root.data:
+ root.right = delete(root.right, x)
+ else:
+ if root.left is None:
+ return root.right
+ if root.right is None:
+ return root.left
+ t = root.right
+ while t.left:
+ t = t.left
+ root.data = t.data
+ root.right = delete(root.right, t.data)
+ return root
+def display(root):
+ if root:
+ display(root.left)
+ print(root.data, end=" ")
+ display(root.right)
+root = None
+for x in [50, 30, 70, 20, 40]:
+ root = insert(root, x)
+print("BST:"); display(root)
+print("\nSearching 40:", "Found" if search(root, 40) else "Not Found")
+root = delete(root, 30)
+print("After Deletion:"); display(root)
+print()
+Expected Output
+BST:
+20 30 40 50 70
+Searching 40: Found
+After Deletion:
+20 40 50 70

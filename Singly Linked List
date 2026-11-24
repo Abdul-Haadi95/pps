@@ -1,0 +1,39 @@
+class Node:
+ def __init__(self, data):
+ self.data, self.next = data, None
+head = None
+def insert(x):
+ global head
+ n = Node(x)
+ if head is None:
+ head = n
+ else:
+ t = head
+ while t.next:
+ t = t.next
+ t.next = n
+def delete(x):
+ global head
+ t, p = head, None
+ while t and t.data != x:
+ p, t = t, t.next
+ if t:
+ if p:
+ p.next = t.next
+ else:
+ head = t.next
+def display():
+ t = head
+ while t:
+ print(t.data, end=" -> ")
+ t = t.next
+ print("NULL")
+insert(10); insert(20); insert(30)
+print("Linked List:"); display()
+delete(20)
+print("After Deletion:"); display()
+Expected Output
+Linked List:
+10 -> 20 -> 30 -> NULL
+After Deletion:
+10 -> 30 -> NULL

@@ -1,0 +1,41 @@
+class Node:
+ def __init__(self, data):
+ self.data, self.next = data, None
+front = rear = None
+def enqueue(x):
+ global front, rear
+ n = Node(x)
+ if rear is None:
+ front = rear = n
+ else:
+ rear.next = n
+ rear = n
+def dequeue():
+ global front, rear
+ if front:
+ print("Deleted:", front.data)
+ front = front.next
+ if front is None:
+ rear = None
+else:
+ print("Queue is Empty")
+def peek():
+ if front:
+ print("Front:", front.data)
+def display():
+ t = front
+ while t:
+ print(t.data, end=" ")
+ t = t.next
+ print()
+enqueue(10); enqueue(20); enqueue(30)
+print("Queue:"); display()
+peek(); dequeue()
+print("After DEQUEUE:"); display()
+Expected Output
+Queue:
+10 20 30
+Front: 10
+Deleted: 10
+After DEQUEUE:
+20 30

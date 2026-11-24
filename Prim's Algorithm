@@ -1,0 +1,26 @@
+g = [[0,10,20,30,40],
+ [10,0,2,3,4],
+ [20,2,0,1,2],
+ [30,3,1,0,3],
+ [40,4,2,3,0]]
+n = 5
+visited = [1, 0, 0, 0, 0]
+total = 0
+print("Edges in MST:")
+for k in range(n-1):
+ m = 999
+ for i in range(n):
+ for j in range(n):
+ if visited[i] and not visited[j] and 0 < g[i][j] < m:
+ m, u, v = g[i][j], i, j
+ print(u, "-", v, ":", m)
+ visited[v] = 1
+ total += m
+print("Minimum Cost =", total)
+Expected Output
+Edges in MST:
+0 - 1 : 10
+1 - 2 : 2
+2 - 3 : 1
+2 - 4 : 2
+Minimum Cost = 15
